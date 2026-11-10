@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<style id="pl-style">html::before,html::after{content:"";position:fixed;z-index:2147483646;pointer-events:none;opacity:0;visibility:hidden;transition:opacity 260ms ease,visibility 0s linear 260ms}html::before{inset:0;background:#000 url("assets/logo-modulor-wit.svg") no-repeat center calc(50% - 18px)/clamp(64px,6vw,110px) auto}html::after{left:50%;top:calc(50% + clamp(36px,3.4vw,62px));width:clamp(110px,10vw,180px);height:2px;margin-left:calc(clamp(110px,10vw,180px)/-2);z-index:2147483647;background:linear-gradient(#fff,#fff) no-repeat #333;background-size:40% 100%;animation:pl-bar 1s cubic-bezier(.65,0,.35,1) infinite}html.pl-wait::before,html.pl-wait::after{opacity:1;visibility:visible;transition:opacity 200ms ease}@keyframes pl-bar{from{background-position:-70% 0}to{background-position:170% 0}}@media (prefers-reduced-motion:reduce){html::after{animation:none;background-position:50% 0}}</style>
+<script id="pl-script">(function(){var d=document.documentElement,t0=Date.now(),shown=0,tm=setTimeout(function(){if(!ready()){d.classList.add('pl-wait');shown=Date.now()}},180);
+function ready(){return document.readyState==='complete'&&document.querySelector('main,footer')}
+function done(){clearTimeout(tm);var w=shown?Math.max(0,350-(Date.now()-shown)):0;setTimeout(function(){d.classList.remove('pl-wait')},w)}
+(function chk(){if(ready()||Date.now()-t0>8000){requestAnimationFrame(done)}else setTimeout(chk,60)})();
+document.addEventListener('click',function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;var a=e.target.closest&&e.target.closest('a[href]');if(!a||a.target&&a.target!=='_self'||a.hasAttribute('download'))return;var u=new URL(a.href,location.href);if(u.origin!==location.origin||u.protocol.indexOf('http')!==0)return;if(u.pathname===location.pathname&&u.search===location.search)return;clearTimeout(tm);tm=setTimeout(function(){d.classList.add('pl-wait');shown=Date.now()},150)});
+addEventListener('pageshow',function(e){if(e.persisted){clearTimeout(tm);d.classList.remove('pl-wait')}});})();</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Events &amp; agenda — MODULOR</title>
+<meta name="description" content="Bekijk alle events van MODULOR: TD's, lezingen, sport, cultuur en tutor-activiteiten voor studenten Ontwerpwetenschappen in Antwerpen.">
+<link rel="canonical" href="https://modulorantwerpen.be/events">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MODULOR">
+<meta property="og:locale" content="nl_BE">
+<meta property="og:title" content="Events &amp; agenda — MODULOR">
+<meta property="og:description" content="Bekijk alle events van MODULOR: TD's, lezingen, sport, cultuur en tutor-activiteiten voor studenten Ontwerpwetenschappen in Antwerpen.">
+<meta property="og:url" content="https://modulorantwerpen.be/events">
+<meta property="og:image" content="https://modulorantwerpen.be/assets/hero-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="preload" href="assets/vendor/react-18.3.1.min.js" as="script">
+<link rel="preload" href="assets/vendor/react-dom-18.3.1.min.js" as="script">
+<link rel="preload" href="Navbar.dc.html" as="fetch" crossorigin="anonymous">
+<script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"assets/vendor/react-18.3.1.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"assets/vendor/react-dom-18.3.1.min.js"};</script>
+<script src="assets/vendor/react-18.3.1.min.js"></script>
+<script src="assets/vendor/react-dom-18.3.1.min.js"></script>
+<script src="./support.js"></script>
+<script id="pf-script">(function(){var done={};function pf(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||a.target==='_blank')return;var u=new URL(a.href,location.href);if(u.origin!==location.origin)return;var k=u.pathname;if(done[k]||k===location.pathname)return;done[k]=1;var l=document.createElement('link');l.rel='prefetch';l.href=k;document.head.appendChild(l)}document.addEventListener('mouseover',pf,{passive:true});document.addEventListener('touchstart',pf,{passive:true});document.addEventListener('focusin',pf)})();</script>
+
+<style class="sp-marquee-rule">@keyframes sp-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}.sp-track:hover{animation-play-state:paused!important}@media (prefers-reduced-motion: reduce){.sp-track{animation:none!important}}</style></head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+html{background:#000000}
+html,body{margin:0;padding:0;min-height:100%;color:#ffffff;font-family:'DINPro','DIN Pro','Roboto',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:transparent}
+*,*::before,*::after{box-sizing:border-box}
+a{color:#ffffff;text-decoration:underline}
+a:hover{color:#a6a6a6}
+</style>
+<style class="sp-cols-rule">@media (min-width: 900px){:root{--sp-cols:8}}</style><style class="sp-marquee-rule">@keyframes sp-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}.sp-track:hover{animation-play-state:paused!important}@media (prefers-reduced-motion: reduce){.sp-track{animation:none!important}}</style></helmet>
+<div style="min-height:100dvh;display:flex;flex-direction:column">
+  <dc-import name="Navbar" active="Events" hint-size="100%,0px"></dc-import>
+  <main style="flex:1;width:100%;max-width:clamp(1200px, 75vw, 1920px);margin:0 auto;padding:calc(env(safe-area-inset-top, 0px) + clamp(120px, 12vw, 200px)) clamp(16px, 4vw, 64px) clamp(32px, 4vw, 64px)">
+    <h1 style="margin:0;font-size:clamp(40px, 7vw, 128px);line-height:0.95;font-weight:700;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance">EVENTS.</h1>
+    <section id="agenda" style="scroll-margin-top:clamp(96px, 9vw, 160px);display:flex;flex-direction:column;gap:clamp(28px, 3.5vw, 64px);margin-top:clamp(48px, 6vw, 120px);padding-top:clamp(16px, 1.6vw, 28px);border-top:1px solid #ffffff">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(12px, 2vw, 32px)">
+        <p style="margin:0;font-size:clamp(32px, 4.5vw, 88px);font-weight:900;line-height:0.9;letter-spacing:-0.03em;text-transform:uppercase">AGENDA.</p>
+        <h2 style="margin:0;font-size:clamp(11px, 0.85vw, 15px);font-weight:700;letter-spacing:0.16em;text-transform:uppercase;line-height:1.2">Wat staat er op de planning</h2>
+      </div>
+      <div style="position:relative;width:calc(100% - clamp(0px, (640px - 100vw) * 1000, 56px));height:clamp(480px, 70vh, 820px);border:1px solid #333333;border-radius:0;background:#000000;overflow:hidden">
+        <iframe src="{{ calSrc }}" title="MODULOR-agenda" loading="lazy" frameborder="0" scrolling="no" style="display:block;width:100%;height:100%;border:0;filter:invert(0.92) hue-rotate(180deg)"></iframe>
+      </div>
+      <a href="https://calendar.google.com/calendar/r?cid=Y180MWVjN2EyZWNkNmQ3NWVkYmRmNDc3ZjI2MzE3N2Q5NGMxOGM5MDQ4OGU5ZGY4ZmJhY2MwYjY4N2ZjMmMwMzRmQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;min-height:48px;min-width:min(100%, 220px);padding:0 clamp(18px, 1.6vw, 28px);align-self:flex-start;border:1px solid #ffffff;border-radius:0;color:#ffffff;text-decoration:none;font-size:clamp(12px, 0.85vw, 16px);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 200ms ease, color 200ms ease" style-hover="background:#ffffff;color:#000000">Zet in je agenda</a>
+    </section>
+  </main>
+  <footer style="width:100%;margin-top:clamp(48px, 6vw, 112px);max-width:clamp(1200px, 75vw, 1920px);margin:0 auto;padding:0 clamp(16px, 4vw, 64px) calc(env(safe-area-inset-bottom, 0px) + clamp(20px, 2vw, 36px))">
+    <div aria-label="Onze sponsors" style="display:flex;flex-direction:column;gap:clamp(16px, 1.6vw, 28px);padding:clamp(28px, 3.5vw, 56px) 0;border-top:1px solid #333333"><a href="/onze-partners" style="align-self:flex-start;color:#ffffff;text-decoration:none;font-size:clamp(11px, 0.8vw, 14px);font-weight:700;letter-spacing:0.14em;text-transform:uppercase" style-hover="color:#A6A6A6">Onze sponsors. →</a><div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)"><div class="sp-track" style="display:flex;align-items:center;width:max-content;animation:sp-marquee 36s linear infinite"><a href="/onze-partners" title="Design Express" aria-label="Design Express — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-designexpress.png" alt="Design Express" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a href="/onze-partners" title="Erfgoed en Visie" aria-label="Erfgoed en Visie — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-erfgoed-v3.png" alt="Erfgoed en Visie" style="display:block;max-width:100%;max-height:100%;width:auto;height:100%;object-fit:contain;filter:brightness(0) invert(1)"></a><a href="/onze-partners" title="Acerta" aria-label="Acerta — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-acerta.png" alt="Acerta" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a href="/onze-partners" title="NAV" aria-label="NAV — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-nav.png" alt="NAV" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a href="/onze-partners" title="SBE" aria-label="SBE — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-sbe.png" alt="SBE" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a href="/onze-partners" title="Protect" aria-label="Protect — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-protect.png" alt="Protect" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:grayscale(1);background:#ffffff;padding:4px 8px"></a><a href="/onze-partners" title="Sweco" aria-label="Sweco — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-sweco.png" alt="Sweco" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a href="/onze-partners" title="Orde van Architecten" aria-label="Orde van Architecten — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-orde.png" alt="Orde van Architecten" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a aria-hidden="true" tabindex="-1" href="/onze-partners" title="Design Express" aria-label="Design Express — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-designexpress.png" alt="Design Express" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a aria-hidden="true" tabindex="-1" href="/onze-partners" title="Erfgoed en Visie" aria-label="Erfgoed en Visie — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-erfgoed-v3.png" alt="Erfgoed en Visie" style="display:block;max-width:100%;max-height:100%;width:auto;height:100%;object-fit:contain;filter:brightness(0) invert(1)"></a><a aria-hidden="true" tabindex="-1" href="/onze-partners" title="Acerta" aria-label="Acerta — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-acerta.png" alt="Acerta" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a aria-hidden="true" tabindex="-1" href="/onze-partners" title="NAV" aria-label="NAV — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-nav.png" alt="NAV" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a aria-hidden="true" tabindex="-1" href="/onze-partners" title="SBE" aria-label="SBE — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-sbe.png" alt="SBE" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a aria-hidden="true" tabindex="-1" href="/onze-partners" title="Protect" aria-label="Protect — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-protect.png" alt="Protect" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:grayscale(1);background:#ffffff;padding:4px 8px"></a><a aria-hidden="true" tabindex="-1" href="/onze-partners" title="Sweco" aria-label="Sweco — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-sweco.png" alt="Sweco" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a><a aria-hidden="true" tabindex="-1" href="/onze-partners" title="Orde van Architecten" aria-label="Orde van Architecten — naar Onze Partners" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(110px, 9vw, 170px);height:clamp(44px, 4vw, 72px);padding:6px;margin-right:clamp(28px, 3.5vw, 64px);opacity:0.75;transition:opacity 200ms ease" style-hover="opacity:1"><img decoding="async" loading="lazy" src="assets/partners/p-orde.png" alt="Orde van Architecten" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1)"></a></div></div></div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:clamp(24px, 3vw, 56px);padding:clamp(32px, 4vw, 64px) 0;border-top:1px solid #333333;font-size:clamp(14px, 0.95vw, 17px);line-height:1.6">
+      <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:clamp(12px, 1.2vw, 20px)">
+        <img decoding="async" src="assets/logo-modulor-wit.svg" alt="MODULOR" style="display:block;width:clamp(56px, 4.5vw, 84px);height:auto">
+        <div style="display:flex;flex-direction:column">
+          <span style="font-weight:700">MODULOR vzw</span>
+          <span>Mutsaardstraat 31, Lokaal K1.14</span>
+          <span>2000 Antwerpen, België</span>
+          <a href="mailto:info@modulorantwerpen.be" style="align-self:flex-start">info@modulorantwerpen.be</a>
+          <span style="color:#a6a6a6">BE0662.953.923</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <a href="https://www.instagram.com/modulorantwerpen/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #ffffff;border-radius:0;color:#ffffff;text-decoration:none;transition:background 200ms ease, color 200ms ease" style-hover="background:#ffffff;color:#000000"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg></a>
+          <a href="https://www.facebook.com/modulorantwerpen" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #ffffff;border-radius:0;color:#ffffff;text-decoration:none;transition:background 200ms ease, color 200ms ease" style-hover="background:#ffffff;color:#000000"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v8h4v-8H17l.6-4h-4.1V8.8c0-.5.3-.8.5-.8z"></path></svg></a>
+          <a href="https://linktr.ee/MODULOR_UA" target="_blank" rel="noopener" aria-label="Linktree" title="Linktree" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #ffffff;border-radius:0;color:#ffffff;text-decoration:none;transition:background 200ms ease, color 200ms ease" style-hover="background:#ffffff;color:#000000"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 7.1 17.4 3.1l2.3 2.3-4.1 3.9h5.8v3.2h-5.8l4.1 4-2.3 2.3-5.4-5.5-5.4 5.5-2.3-2.3 4.1-4H2.6V9.3h5.8L4.3 5.4l2.3-2.3 3.9 4V1.3h3zM10.5 15.4h3V23h-3z"></path></svg></a>
+        </div>
+      </div>
+      <nav aria-label="Site-overzicht" style="flex:0 1 200px;display:flex;flex-direction:column;gap:6px">
+        <span style="margin-bottom:6px;font-size:clamp(11px, 0.8vw, 14px);font-weight:700;letter-spacing:0.14em;text-transform:uppercase">Site-overzicht.</span>
+        <a href="/" style="align-self:flex-start;text-decoration:none">Home</a>
+        <a href="/about-us" style="align-self:flex-start;text-decoration:none">About Us</a>
+        <a href="/events" style="align-self:flex-start;text-decoration:none">Events</a>
+        <a href="/merch" style="align-self:flex-start;text-decoration:none">Merch</a>
+        <a href="/contact" style="align-self:flex-start;text-decoration:none">Contact</a>
+        <a href="/partners" style="align-self:flex-start;text-decoration:none">Partners</a>
+        <a href="/faq" style="align-self:flex-start;text-decoration:none">FAQ</a>
+      </nav>
+      <div style="flex:0 1 240px;display:flex;flex-direction:column;gap:clamp(12px, 1.2vw, 20px)">
+        <span style="font-size:clamp(11px, 0.8vw, 14px);font-weight:700;letter-spacing:0.14em;text-transform:uppercase">Wij werken samen met.</span>
+        <a href="https://www.uantwerpen.be/" target="_blank" rel="noopener" aria-label="Universiteit Antwerpen (opent in nieuw venster)" style="display:block;align-self:flex-start;opacity:1;transition:opacity 200ms ease" style-hover="opacity:0.7"><img decoding="async" src="assets/partners/uantwerpen-logo.svg" alt="Universiteit Antwerpen" style="display:block;width:clamp(150px, 11vw, 200px);height:auto"></a>
+        <a href="https://www.unifac.be/" target="_blank" rel="noopener" aria-label="Unifac (opent in nieuw venster)" style="display:block;align-self:flex-start;opacity:1;transition:opacity 200ms ease" style-hover="opacity:0.7"><img decoding="async" src="assets/partners/unifac-logo-h.webp" alt="Unifac" style="display:block;width:clamp(146px, 10.6vw, 194px);height:auto"></a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px clamp(24px, 3vw, 56px);padding-top:clamp(16px, 1.6vw, 24px);border-top:1px solid #333333;font-size:clamp(12px, 0.8vw, 14px);color:#a6a6a6">
+      <span>© 2012–2026 MODULOR vzw. Alle rechten voorbehouden.</span>
+      <span>Wij verenigen design.</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1440 };
+  onResize = () => { const w = window.innerWidth; if ((w < 640) !== (this.state.w < 640)) this.setState({ w }); };
+  componentDidMount() { window.addEventListener('resize', this.onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    const base = "https://calendar.google.com/calendar/embed?src=c_41ec7a2ecd6d75edbdf477f263177d94c18c90488e9df8fbacc0b687fc2c034f%40group.calendar.google.com&ctz=Europe%2FBrussels&hl=nl&wkst=2&mode=MONTH&showTitle=0&showPrint=0&showCalendars=0&showTz=0&bgcolor=%23ffffff";
+    return { calSrc: this.state.w < 640 ? base.replace('mode=MONTH', 'mode=AGENDA') : base };
+  }
+}
+</script>
+</body>
+</html>

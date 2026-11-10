@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{top:0 !important;position:static !important}
+.goog-te-banner-frame,iframe.skiptranslate,#goog-gt-tt,.goog-te-balloon-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf{display:none !important}
+font{background:transparent !important;box-shadow:none !important}
+</style>
+</helmet>
+<div id="google_translate_element" style="display:none"></div>
+<div aria-hidden="true" style="position:fixed;inset:0;z-index:-1;overflow:hidden;background:#000000;pointer-events:none">
+  <div ref="{{ bgRefA }}" style="position:absolute;left:-25vmax;top:-30vmax;width:90vmax;height:90vmax;background:radial-gradient(closest-side, rgba(78,78,78,0.55), rgba(78,78,78,0) 100%);will-change:transform"></div>
+  <div ref="{{ bgRefB }}" style="position:absolute;right:-30vmax;top:10vh;width:80vmax;height:80vmax;background:radial-gradient(closest-side, rgba(58,58,58,0.6), rgba(58,58,58,0) 100%);will-change:transform"></div>
+  <div ref="{{ bgRefC }}" style="position:absolute;left:10vw;bottom:-40vmax;width:85vmax;height:85vmax;background:radial-gradient(closest-side, rgba(44,44,44,0.7), rgba(44,44,44,0) 100%);will-change:transform"></div>
+</div>
+<header style="position:fixed;top:calc(env(safe-area-inset-top, 0px) + clamp(10px, 1.6vw, 28px));left:50%;transform:translateX(-50%);width:calc(100% - 2 * clamp(10px, 1.6vw, 28px));max-width:clamp(1160px, 72vw, 1840px);height:clamp(52px, 4vw, 72px);display:flex;align-items:center;justify-content:space-between;gap:clamp(12px, 2vw, 32px);padding:0 clamp(14px, 2vw, 32px);background:#000000;border:1px solid #333333;border-radius:0;box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:100;font-family:'DINPro','DIN Pro','Roboto',Helvetica,Arial,sans-serif">
+  <a href="/" aria-label="MODULOR — home" style="display:flex;align-items:center;height:100%;padding:clamp(8px, 0.7vw, 14px) 0"><img decoding="async" translate="no" src="assets/logo-modulor-wit.svg" alt="MODULOR" style="display:block;height:100%;width:auto"></a>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <nav style="display:flex;align-items:center;gap:clamp(16px, 2.4vw, 48px);height:100%">
+      <sc-for list="{{ pages }}" as="p" hint-placeholder-count="5">
+        <div onMouseEnter="{{ p.enter }}" onMouseLeave="{{ leave }}" style="position:relative;display:flex;align-items:center;height:100%">
+          <a href="{{ p.href }}" aria-current="{{ p.current }}" aria-haspopup="{{ p.popup }}" aria-expanded="{{ p.expanded }}" onFocus="{{ p.enter }}" onClick="{{ p.click }}" style="position:relative;display:flex;align-items:center;gap:6px;height:100%;color:#ffffff;text-decoration:none;font-size:clamp(12px, 0.85vw, 16px);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;outline:none">
+            <span>{{ p.label }}</span>
+            <sc-if value="{{ p.hasSub }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="display:block;width:6px;height:6px;border-right:2px solid #ffffff;border-bottom:2px solid #ffffff;margin-top:-3px;transform:{{ p.caret }};transition:transform 320ms cubic-bezier(0.65, 0, 0.35, 1)"></span></sc-if>
+            <span aria-hidden="true" style="position:absolute;left:0;right:0;bottom:calc(50% - 1.1em);height:2px;background:#ffffff;transform-origin:{{ p.origin }};transform:{{ p.line }};transition:transform 320ms cubic-bezier(0.65, 0, 0.35, 1)"></span>
+          </a>
+          <sc-if value="{{ p.hasSub }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:100%;left:calc(-1 * clamp(14px, 1.2vw, 22px));padding-top:calc(clamp(10px, 1vw, 16px) + 1px);visibility:{{ p.vis }};opacity:{{ p.opacity }};transform:{{ p.drop }};transition:opacity 220ms ease, transform 320ms cubic-bezier(0.65, 0, 0.35, 1), visibility 320ms">
+              <div style="display:flex;flex-direction:column;min-width:clamp(160px, 12vw, 240px);background:#000000;border:1px solid #333333;border-radius:0;box-shadow:0 8px 24px rgba(0,0,0,0.35)">
+                <sc-for list="{{ p.sub }}" as="s" hint-placeholder-count="2">
+                  <a href="{{ s.href }}" onFocus="{{ p.enter }}" onClick="{{ leave }}" style="display:flex;align-items:center;min-height:48px;padding:0 clamp(14px, 1.2vw, 22px);border-bottom:1px solid #333333;color:#ffffff;text-decoration:none;font-size:clamp(12px, 0.85vw, 16px);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap" style-hover="color:#a6a6a6">{{ s.label }}</a>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+      <a href="/word-lid" aria-current="{{ lidCurrent }}" style="display:flex;align-items:center;height:clamp(32px, 2.4vw, 42px);padding:0 clamp(12px, 1vw, 18px);background:#ffffff;border:1px solid #ffffff;border-radius:0;color:#000000;text-decoration:none;font-size:clamp(12px, 0.85vw, 16px);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;transition:background 200ms ease, color 200ms ease" style-hover="background:#000000;color:#ffffff">Word lid</a>
+      <div translate="no" onMouseEnter="{{ langEnter }}" onMouseLeave="{{ langLeave }}" style="position:relative;display:flex;align-items:center;height:100%;padding-left:clamp(12px, 1.4vw, 28px);border-left:1px solid #333333">
+        <button type="button" onClick="{{ langToggle }}" aria-haspopup="true" aria-expanded="{{ langExpanded }}" aria-label="Taal kiezen" style="display:flex;align-items:center;gap:6px;padding:4px 2px;background:transparent;border:0;border-radius:0;color:#ffffff;font-family:'DINPro','DIN Pro','Roboto',Helvetica,Arial,sans-serif;font-size:clamp(11px, 0.75vw, 14px);font-weight:700;letter-spacing:0.08em;cursor:pointer">
+          <span>{{ langCode }}</span>
+          <span aria-hidden="true" style="display:block;width:5px;height:5px;border-right:2px solid #ffffff;border-bottom:2px solid #ffffff;margin-top:-3px;transform:{{ langCaret }};transition:transform 320ms cubic-bezier(0.65, 0, 0.35, 1)"></span>
+        </button>
+        <div style="position:absolute;top:100%;right:calc(-1 * clamp(14px, 1.2vw, 22px));padding-top:calc(clamp(10px, 1vw, 16px) + 1px);visibility:{{ langVis }};opacity:{{ langOpacity }};transform:{{ langDrop }};transition:opacity 220ms ease, transform 320ms cubic-bezier(0.65, 0, 0.35, 1), visibility 320ms">
+          <div style="display:flex;flex-direction:column;min-width:clamp(120px, 8vw, 160px);background:#000000;border:1px solid #333333;border-radius:0;box-shadow:0 8px 24px rgba(0,0,0,0.35)">
+            <sc-for list="{{ langs }}" as="l" hint-placeholder-count="2">
+              <button type="button" onClick="{{ l.pick }}" aria-pressed="{{ l.on }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:0 clamp(14px, 1.2vw, 22px);background:transparent;border:0;border-bottom:1px solid #333333;border-radius:0;color:{{ l.color }};font-family:'DINPro','DIN Pro','Roboto',Helvetica,Arial,sans-serif;font-size:clamp(11px, 0.75vw, 14px);font-weight:700;letter-spacing:0.08em;text-align:left;cursor:pointer" style-hover="color:#ffffff"><span>{{ l.code }}</span><span style="font-weight:400;letter-spacing:0.02em">{{ l.name }}</span></button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </sc-if>
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <button type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-label="Menu" style="height:44px;min-width:44px;padding:0 14px;background:transparent;border:1px solid #333333;border-radius:0;color:#ffffff;font-family:'DINPro','DIN Pro','Roboto',Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer" style-hover="border-color:#ffffff">{{ menuLabel }}</button>
+  </sc-if>
+</header>
+<sc-if value="{{ showMobileMenu }}" hint-placeholder-val="{{ false }}">
+  <nav style="position:fixed;top:calc(env(safe-area-inset-top, 0px) + clamp(10px, 1.6vw, 28px) + clamp(52px, 4vw, 72px) + 8px);left:clamp(10px, 1.6vw, 28px);right:clamp(10px, 1.6vw, 28px);display:flex;flex-direction:column;background:#000000;border:1px solid #333333;border-radius:0;box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:99;max-height:calc(100dvh - env(safe-area-inset-top, 0px) - 96px);overflow-y:auto;overscroll-behavior:contain;font-family:'DINPro','DIN Pro','Roboto',Helvetica,Arial,sans-serif">
+    <sc-for list="{{ pages }}" as="p" hint-placeholder-count="5">
+      <div style="display:flex;align-items:stretch;border-bottom:1px solid #333333">
+        <a href="{{ p.href }}" aria-current="{{ p.current }}" onClick="{{ closeMenu }}" style="flex:1;display:flex;align-items:center;min-height:46px;padding:0 16px;color:#ffffff;text-decoration:none;font-size:clamp(15px, 4.2vw, 18px);font-weight:700;letter-spacing:0.06em;text-transform:uppercase">
+          <span style="position:relative;padding-bottom:3px">{{ p.label }}<span aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:2px;background:#ffffff;transform-origin:left;transform:{{ p.activeLine }}"></span></span>
+        </a>
+        <sc-if value="{{ p.hasSub }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ p.mToggle }}" aria-expanded="{{ p.mExpanded }}" aria-label="{{ p.mLabel }}" style="flex:0 0 48px;display:flex;align-items:center;justify-content:center;background:transparent;border:0;border-left:1px solid #333333;border-radius:0;color:#ffffff;cursor:pointer">
+            <span aria-hidden="true" style="display:block;width:8px;height:8px;border-right:2px solid #ffffff;border-bottom:2px solid #ffffff;margin-top:-4px;transform:{{ p.mCaret }};transition:transform 320ms cubic-bezier(0.65, 0, 0.35, 1)"></span>
+          </button>
+        </sc-if>
+      </div>
+      <sc-if value="{{ p.mOpen }}" hint-placeholder-val="{{ false }}">
+          <sc-for list="{{ p.sub }}" as="s" hint-placeholder-count="0">
+            <a href="{{ s.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:44px;padding:0 16px 0 32px;border-bottom:1px solid #333333;background:#0d0d0d;color:#ffffff;text-decoration:none;font-size:clamp(13px, 3.6vw, 15px);font-weight:500;letter-spacing:0.06em;text-transform:uppercase">{{ s.label }}</a>
+          </sc-for>
+      </sc-if>
+    </sc-for>
+    <a href="/word-lid" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:center;min-height:46px;margin:8px 16px 0;background:#ffffff;border-radius:0;color:#000000;text-decoration:none;font-size:clamp(15px, 4.2vw, 18px);font-weight:700;letter-spacing:0.06em;text-transform:uppercase">Word lid</a>
+    <div translate="no" style="display:flex;gap:8px;padding:8px 16px">
+      <sc-for list="{{ langs }}" as="l" hint-placeholder-count="2">
+        <button type="button" onClick="{{ l.pick }}" aria-pressed="{{ l.on }}" aria-label="{{ l.name }}" style="min-width:44px;height:44px;background:transparent;border:1px solid {{ l.border }};border-radius:0;color:{{ l.color }};font-family:'DINPro','DIN Pro','Roboto',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;letter-spacing:0.08em;cursor:pointer">{{ l.code }}</button>
+      </sc-for>
+    </div>
+  </nav>
+</sc-if>
+<div ref="{{ railRef }}" aria-hidden="true" style="position:fixed;top:0;bottom:0;right:0;width:clamp(5px, 0.55vw, 12px);display:flex;flex-direction:column;background:rgba(255,255,255,0.08);z-index:90;pointer-events:none;opacity:0;transform:translateX(100%);transition:opacity 300ms ease, transform 450ms cubic-bezier(0.65, 0, 0.35, 1)">
+  <div style="flex:1;background:#86D9DC;transform-origin:top;transform:scaleY(0)"></div>
+  <div style="flex:1;background:#E3DE4B;transform-origin:top;transform:scaleY(0)"></div>
+  <div style="flex:1;background:#E07B2E;transform-origin:top;transform:scaleY(0)"></div>
+  <div style="flex:1;background:#D63B3E;transform-origin:top;transform:scaleY(0)"></div>
+  <div style="flex:1;background:#8A3FD8;transform-origin:top;transform:scaleY(0)"></div>
+  <div style="flex:1;background:#6CCB5F;transform-origin:top;transform:scaleY(0)"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;&quot;, &quot;About Us&quot;, &quot;Events&quot;, &quot;Merch&quot;, &quot;Contact&quot;, &quot;Partners&quot;, &quot;FAQ&quot;, &quot;Word lid&quot;], &quot;default&quot;: &quot;&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1440, menuOpen: false, hover: null, lastHover: null };
+  onResize = () => this.setState(s => ({ w: window.innerWidth, menuOpen: window.innerWidth >= 820 ? false : s.menuOpen }));
+  bgEls = [];
+  bgRefA = (el) => { this.bgEls[0] = el; };
+  bgRefB = (el) => { this.bgEls[1] = el; };
+  bgRefC = (el) => { this.bgEls[2] = el; };
+  animateBg = (t) => {
+    const s = t / 1000;
+    const p = [
+      [Math.sin(s / 11) * 18, Math.cos(s / 13) * 14, 1 + Math.sin(s / 17) * 0.08],
+      [Math.cos(s / 14) * -20, Math.sin(s / 10) * 16, 1 + Math.cos(s / 19) * 0.1],
+      [Math.sin(s / 16 + 1) * 22, Math.cos(s / 12 + 2) * -12, 1 + Math.sin(s / 15) * 0.07]
+    ];
+    this.bgEls.forEach((el, i) => { if (el) el.style.transform = 'translate3d(' + p[i][0].toFixed(2) + 'vw,' + p[i][1].toFixed(2) + 'vh,0) scale(' + p[i][2].toFixed(3) + ')'; });
+    this.bgRaf = requestAnimationFrame(this.animateBg);
+  };
+  railRef = (el) => { this.rail = el; this.updateRail(); };
+  updateRail = () => {
+    this.raf = 0;
+    const rail = this.rail;
+    if (!rail) return;
+    const y = window.scrollY, vh = window.innerHeight;
+    const hero = document.querySelector('[data-rail-start]');
+    const start = hero ? hero.offsetHeight * 0.75 : 0;
+    const end = Math.max(start + 1, document.documentElement.scrollHeight - vh);
+    const p = Math.min(1, Math.max(0, (y - start) / (end - start)));
+    const shown = hero ? y >= start : y > 4;
+    rail.style.opacity = shown ? '1' : '0';
+    rail.style.transform = shown ? 'translateX(0)' : 'translateX(100%)';
+    const k = rail.children.length;
+    for (let i = 0; i < k; i++) rail.children[i].style.transform = 'scaleY(' + Math.min(1, Math.max(0, p * k - i)).toFixed(4) + ')';
+  };
+  onScroll = () => { if (!this.raf) this.raf = requestAnimationFrame(this.updateRail); };
+  loadTranslate() {
+    const m = document.cookie.match(/googtrans=\/nl\/(\w+)/);
+    let saved = null; try { saved = localStorage.getItem('modulor-lang'); } catch (e) {}
+    const lang = saved || (m ? m[1] : 'nl');
+    this.setState({ lang });
+    if (lang !== 'nl') this.applyLang(lang);
+    if (window.__gtLoaded) return;
+    window.__gtLoaded = true;
+    window.__gtInit = () => { new window.google.translate.TranslateElement({ pageLanguage: 'nl', includedLanguages: 'nl,en', autoDisplay: false }, 'google_translate_element'); };
+    const sc = document.createElement('script');
+    sc.src = 'https://translate.google.com/translate_a/element.js?cb=__gtInit';
+    sc.async = true;
+    const add = () => document.head.appendChild(sc);
+    if (lang !== 'nl') add();
+    else if (window.requestIdleCallback) requestIdleCallback(add, { timeout: 4000 });
+    else setTimeout(add, 2500);
+  }
+  applyLang(code, tries = 0) {
+    const combo = document.querySelector('.goog-te-combo');
+    if (!combo || combo.options.length < 2) { if (tries < 60) setTimeout(() => this.applyLang(code, tries + 1), 150); return; }
+    combo.value = code;
+    combo.dispatchEvent(new Event('change', { bubbles: true }));
+    if (code === 'nl' && document.documentElement.classList.contains('translated-ltr')) setTimeout(() => this.applyLang(code, tries + 1), 300);
+    if (code !== 'nl' && tries === 0) setTimeout(() => {
+      const h = location.hostname;
+      if (document.querySelector('font') || !h.includes('.') || /claudeusercontent|localhost/.test(h) || location.protocol === 'file:') return;
+      location.href = 'https://' + h.replace(/-/g, '--').replace(/\./g, '-') + '.translate.goog' + location.pathname + '?_x_tr_sl=nl&_x_tr_tl=' + code + '&_x_tr_hl=' + code;
+    }, 6000);
+  }
+  setLang = (code) => {
+    try { localStorage.setItem('modulor-lang', code); } catch (e) {}
+    const host = location.hostname, exp = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    ['', host, '.' + host.split('.').slice(-2).join('.')].forEach(d => { document.cookie = 'googtrans=; ' + exp + '; path=/' + (d ? '; domain=' + d : ''); });
+    if (code !== 'nl') document.cookie = 'googtrans=/nl/' + code + '; path=/';
+    this.setState({ lang: code, langOpen: false, open: false });
+    this.applyLang(code);
+  };
+  initReveal() {
+    if (window.__rvInit) return; window.__rvInit = true;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const st = document.createElement('style');
+    st.textContent = '.rv{opacity:0;translate:0 32px;transition:opacity 700ms cubic-bezier(0.22,1,0.36,1),translate 800ms cubic-bezier(0.22,1,0.36,1)}.rv-x{opacity:0;translate:45vw 0;transition:opacity 900ms ease,translate 1400ms cubic-bezier(0.22,1,0.36,1)}.rv.rv-in,.rv-x.rv-in{opacity:1;translate:0 0}';
+    document.head.appendChild(st);
+    const SEL = 'main > *:not(section):not(h1), main section > *, main ol > li, main ul > li, footer > div, .sp-track';
+    const seen = new WeakSet();
+    const io = new IntersectionObserver((entries) => {
+      const inn = entries.filter(e => e.isIntersecting).map(e => e.target).sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+      inn.forEach((el, i) => { el.style.transitionDelay = Math.min(i, 6) * 80 + 'ms'; el.classList.add('rv-in'); io.unobserve(el); setTimeout(() => { el.style.transitionDelay = ''; }, 1600 + i * 80); });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    const scan = () => {
+      const vh = window.innerHeight;
+      document.querySelectorAll(SEL).forEach(el => {
+        if (seen.has(el)) return; seen.add(el);
+        if (el.closest('.rv,.rv-x') && !el.classList.contains('sp-track')) return;
+        if (el.getBoundingClientRect().top < vh * 0.92) return;
+        el.classList.add(el.classList.contains('sp-track') ? 'rv-x' : 'rv');
+        io.observe(el);
+      });
+    };
+    let t = 0; const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(scan, 60); });
+    const start = () => { scan(); mo.observe(document.body, { childList: true, subtree: true }); };
+    requestAnimationFrame(() => requestAnimationFrame(start));
+  }
+  initFigures() {
+    if (window.__figInit) return; window.__figInit = true;
+    const M = {
+      home: ['zwaaien', 'le-corbusier-1', 'party', 'glazen-klinken', 'reizen'],
+      'about-us': ['figuur', 'leunen', 'camera', 'birthday'],
+      events: ['dans-1', 'bowling', 'karaoke', 'picknic', 'kerstmuts'],
+      plezier: ['dans-2', 'drinken-glas', 'party', 'rad-van-fortuin', 'dans-3'],
+      sport: ['voetbal', 'basketbal', 'volleybal', 'badminton', 'boulderen'],
+      cultuur: ['museum', 'schilderen', 'reizen', 'camera'],
+      tutor: ['studeren', 'zittend-lezen', 'schrijven', 'lezen'],
+      lezingen: ['spreken', 'presenteren', 'bordvasthouden', 'le-corbusier-1'],
+      'taxi-lezingen': ['taxi-1', 'spreken', 'zittend-lezen'],
+      merch: ['bestellen', 'dans-4', 'rendier'],
+      contact: ['zwaaien', 'schrijven', 'gaming'],
+      partners: ['metselen', 'bordvasthouden', 'presenteren'],
+      'onze-partners': ['metselen', 'leunen', 'glazen-klinken'],
+      vacatures: ['schrijven', 'metselen', 'studeren'],
+      'word-lid': ['glazen-klinken', 'dans-5', 'croque', 'birthday'],
+      'voordelen-lidkaart': ['croque', 'drinken-fles', 'dans-5'],
+      faq: ['spelletjes', 'yahtzee', 'drinken-fles']
+    };
+    let key = decodeURIComponent(location.pathname.split('/').pop() || '').toLowerCase().replace(/\.dc\.html$|\.html$/, '').replace(/\s+/g, '-');
+    if (!key || key === 'site' || key === 'index') key = 'home';
+    const list = M[key]; if (!list) return;
+    let seed = 0; for (const ch of key) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
+    const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+    const box = document.createElement('div');
+    box.setAttribute('aria-hidden', 'true');
+    box.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:0;overflow:hidden;pointer-events:none;z-index:-1';
+    const mob = window.innerWidth < 760;
+    let t = 0; const q = () => { clearTimeout(t); t = setTimeout(place, 120); };
+    const imgs = list.map((n, i) => {
+      const im = document.createElement('img');
+      im.src = 'assets/figuren/' + n + '.webp'; im.alt = ''; im.decoding = 'async'; im.loading = 'lazy';
+      const left = i % 2 === (key.length % 2);
+      const off = (mob ? 2 : 1.5) + rnd() * (mob ? 6 : 5);
+      const rot = (rnd() * 14 - 7).toFixed(1);
+      im.style.cssText = 'position:absolute;' + (left ? 'left:' : 'right:') + off.toFixed(1) + 'vw;width:' + (mob ? 'clamp(56px, 16vw, 84px)' : 'clamp(80px, 8vw, 150px)') + ';height:auto;opacity:0;transform:rotate(' + rot + 'deg);transition:opacity 1200ms ease';
+      im._left = left;
+      im.onload = () => { im.style.opacity = mob ? '0.22' : '0.35'; q(); };
+      im._t = (i + 0.5 + (rnd() - 0.5) * 0.6) / list.length;
+      if (mob && i % 2) im.style.display = 'none';
+      box.appendChild(im); return im;
+    });
+    document.body.appendChild(box);
+    if (mob) {
+      /* Telefoon: poppetjes staan op de witte scheidingslijnen, in hun eigen ruimte — niet meer achter de tekst. */
+      const gapCss = document.createElement('style'); document.head.appendChild(gapCss);
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const docTop = (el) => { let y = 0; while (el) { y += el.offsetTop; el = el.offsetParent; } return y; };
+      const docLeft = (el) => { let x = 0; while (el) { x += el.offsetLeft; el = el.offsetParent; } return x; };
+      const io = window.IntersectionObserver ? new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '0.92'; e.target.style.translate = '0 0'; io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' }) : null;
+      imgs.forEach((im, i) => {
+        im.style.display = ''; im.style.width = 'auto'; im.style.maxWidth = '46vw'; im.style.height = 'clamp(92px, 26vw, 116px)';
+        im.style.left = im.style.right = 'auto'; im.style.transformOrigin = '50% 100%';
+        im.style.transform = 'rotate(' + (rnd() * 6 - 3).toFixed(1) + 'deg)';
+        im.style.transition = reduce ? 'none' : 'opacity 900ms ease, translate 900ms cubic-bezier(0.22,1,0.36,1)';
+        if (!reduce) im.style.translate = '0 14px';
+        im.onload = () => { if (!io) im.style.opacity = '0.92'; q(); };
+        if (io) io.observe(im); else im.style.opacity = '0.92';
+      });
+      const anchorsFor = () => {
+        const main = document.querySelector('main'); if (!main) return [];
+        const mw = main.clientWidth, list = [], early = [];
+        [...main.children].forEach(el => {
+          const cs = getComputedStyle(el);
+          if (!(parseFloat(cs.borderTopWidth) >= 1 && cs.borderTopStyle === 'solid' && cs.borderTopColor === 'rgb(255, 255, 255)' && el.offsetWidth > mw * 0.7)) return;
+          const prev = el.previousElementSibling;
+          (prev && prev.tagName === 'H1' ? early : list).push({ el, prev });
+        });
+        const all = list.length < 2 ? early.concat(list) : list;
+        const f = document.querySelector('footer'), fd = f && f.firstElementChild;
+        if (fd) all.push({ el: fd, prev: main.lastElementChild || main });
+        return all;
+      };
+      var place = () => {
+        const figH = Math.min(116, Math.max(92, window.innerWidth * 0.26));
+        gapCss.textContent = '';
+        document.querySelectorAll('[data-fig-gap]').forEach(e => e.removeAttribute('data-fig-gap'));
+        let anchors = anchorsFor();
+        const n = Math.min(imgs.length, anchors.length);
+        if (anchors.length > n) { const pick = []; for (let k = 0; k < n; k++) pick.push(anchors[Math.round(k * (anchors.length - 1) / Math.max(1, n - 1))]); anchors = pick; }
+        let rules = '';
+        anchors.forEach((a, k) => {
+          a.el.setAttribute('data-fig-gap', String(k));
+          const prevBottom = a.prev ? docTop(a.prev) + a.prev.offsetHeight : 0;
+          const free = docTop(a.el) - prevBottom;
+          const extra = figH + 28 - free;
+          if (extra > 0) rules += '[data-fig-gap="' + k + '"]{margin-top:' + Math.round(parseFloat(getComputedStyle(a.el).marginTop) + extra) + 'px !important}';
+        });
+        gapCss.textContent = '@media (max-width: 759px){' + rules + '}';
+        let bottom = 0;
+        imgs.forEach((im, i) => {
+          const a = anchors[i];
+          if (!a) { im.style.visibility = 'hidden'; return; }
+          im.style.visibility = '';
+          const top = docTop(a.el), left = docLeft(a.el);
+          im.style.top = Math.round(top - figH + 2) + 'px';
+          if (i % 2 === (key.length % 2)) { im.style.left = left + 'px'; im.style.right = 'auto'; }
+          else { im.style.right = Math.max(0, document.documentElement.clientWidth - left - a.el.offsetWidth) + 'px'; im.style.left = 'auto'; }
+          bottom = Math.max(bottom, top + 4);
+        });
+        box.style.height = bottom + 'px';
+      };
+      place(); if (window.ResizeObserver) new ResizeObserver(q).observe(document.body); window.addEventListener('resize', q);
+      return;
+    }
+    var place = () => {
+      const f = document.querySelector('footer');
+      const start = Math.min(window.innerHeight * 0.85, 900);
+      const end = f ? f.getBoundingClientRect().top + window.scrollY - 160 : document.documentElement.scrollHeight - 300;
+      box.style.height = Math.max(0, end + 160) + 'px';
+      const last = { true: -1e9, false: -1e9 }, gap = 40, lim = end + 160;
+      imgs.forEach(im => {
+        if (mob && imgs.indexOf(im) % 2) return;
+        const h = im.offsetHeight || im.offsetWidth * 2 || 200;
+        const top = Math.max(Math.round(start + (end - start) * im._t), last[im._left] + gap);
+        if (top + h > lim) { im.style.visibility = 'hidden'; return; }
+        im.style.visibility = ''; im.style.top = top + 'px'; last[im._left] = top + h;
+      });
+    };
+    place(); if (window.ResizeObserver) new ResizeObserver(q).observe(document.body); window.addEventListener('resize', q);
+  }
+  initMobileType() {
+    /* Telefoon & kleine tablet: de kleinste tekst (labels, knoppen, kaartjes, footer) een maatje groter, zodat alles vlot leesbaar is. Desktop blijft ongewijzigd. */
+    if (window.__mtInit) return; window.__mtInit = true;
+    const map = [[10, 12], [11, 13], [12, 14], [13, 15], [14, 16]];
+    const sel = (px) => ['main', 'footer'].map(r => r + ' [style*="font-size: clamp(' + px + 'px"],' + r + ' [style*="font-size:clamp(' + px + 'px"]').join(',');
+    const st = document.createElement('style');
+    st.textContent = '@media (max-width: 899px){' + map.map(([a, b]) => sel(a) + '{font-size:' + b + 'px !important}').join('') + 'main p,main li{text-wrap:pretty}}';
+    document.head.appendChild(st);
+  }
+  componentDidMount() {
+    this.initMobileType();
+    this.initFigures();
+    this.initReveal();
+    this.loadTranslate();
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('resize', this.onScroll);
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onDocDown = (e) => { if (!(e.target.closest && e.target.closest('header'))) this.setState({ hover: null, langOpen: false }); };
+    document.addEventListener('pointerdown', this.onDocDown);
+    this.onResize(); this.updateRail();
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) this.animateBg(0); else this.bgRaf = requestAnimationFrame(this.animateBg);
+    if (reduce) cancelAnimationFrame(this.bgRaf);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('resize', this.onScroll);
+    window.removeEventListener('scroll', this.onScroll);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.bgRaf) cancelAnimationFrame(this.bgRaf);
+  }
+  renderVals() {
+    const active = this.props.active ?? '';
+    const { hover, lastHover } = this.state;
+    const isDesktop = this.state.w >= 820;
+    const list = [
+      { label: 'About Us', href: '/about-us' },
+      { label: 'Events', href: '/events', sub: [{ label: 'Plezier', href: '/plezier' }, { label: 'Sport', href: '/sport' }, { label: 'Cultuur', href: '/cultuur' }, { label: 'Tutor', href: '/tutor' }, { label: 'Lezingen', href: '/lezingen' }, { label: 'TAXI-lezingen', href: '/taxi-lezingen' }] },
+      { label: 'Merch', href: '/merch' },
+      { label: 'Contact', href: '/contact', sub: [{ label: 'FAQ', href: '/faq' }] },
+      { label: 'Partners', href: '/partners', sub: [{ label: 'Onze partners', href: '/onze-partners' }, { label: 'Vacatures', href: '/vacatures' }, { label: 'Voordelen Lidkaart', href: '/word-lid#voordelen' }] }
+    ];
+    const pages = list.map(p => {
+      const isActive = p.label === active;
+      const on = hover === p.label || (isActive && hover === null);
+      return {
+        ...p,
+        current: isActive ? 'page' : undefined,
+        line: on ? 'scaleX(1)' : 'scaleX(0)',
+        origin: on || lastHover !== p.label ? 'left' : 'right',
+        activeLine: isActive ? 'scaleX(1)' : 'scaleX(0)',
+        sub: p.sub ? [{ label: ({ Events: 'Alle events', Partners: 'Partnerpakketten', Contact: 'Contact' })[p.label] + ' →', href: p.href }, ...p.sub] : [],
+        hasSub: !!p.sub,
+        popup: p.sub ? 'true' : undefined,
+        expanded: p.sub ? String(hover === p.label) : undefined,
+        caret: hover === p.label ? 'rotate(225deg) translate(-2px,-2px)' : 'rotate(45deg)',
+        vis: hover === p.label ? 'visible' : 'hidden',
+        opacity: hover === p.label ? 1 : 0,
+        drop: hover === p.label ? 'translateY(0)' : 'translateY(-8px)',
+        mOpen: this.state.mSub === p.label,
+        mExpanded: String(this.state.mSub === p.label),
+        mLabel: (this.state.mSub === p.label ? 'Verberg ' : 'Toon ') + p.label + '-menu',
+        mCaret: this.state.mSub === p.label ? 'rotate(225deg)' : 'rotate(45deg)',
+        mToggle: () => this.setState(s => ({ mSub: s.mSub === p.label ? null : p.label })),
+        enter: () => this.setState({ hover: p.label, lastHover: p.label }),
+        click: (e) => {
+          const touch = window.matchMedia && window.matchMedia('(hover: none)').matches;
+          if (p.sub && touch && this.state.hover !== p.label) { e.preventDefault(); this.setState({ hover: p.label, lastHover: p.label }); }
+        }
+      };
+    });
+    const cur = this.state.lang || 'nl';
+    const langs = [['nl', 'NL', 'Nederlands'], ['en', 'EN', 'English']].map(([c, code, name]) => ({
+      code, name, on: String(cur === c),
+      color: cur === c ? '#ffffff' : '#a6a6a6',
+      border: cur === c ? '#ffffff' : '#333333',
+      pick: () => { if (cur !== c) this.setLang(c); }
+    }));
+    const lo = !!this.state.langOpen;
+    return {
+      lidCurrent: active === 'Word lid' ? 'page' : undefined,
+      langs,
+      langCode: cur.toUpperCase(),
+      langExpanded: String(lo),
+      langCaret: lo ? 'rotate(225deg) translate(-2px,-2px)' : 'rotate(45deg)',
+      langVis: lo ? 'visible' : 'hidden',
+      langOpacity: lo ? 1 : 0,
+      langDrop: lo ? 'translateY(0)' : 'translateY(-8px)',
+      langEnter: () => this.setState({ langOpen: true }),
+      langLeave: () => this.setState({ langOpen: false }),
+      langToggle: () => this.setState(s => ({ langOpen: !s.langOpen })),
+      railRef: this.railRef,
+      bgRefA: this.bgRefA, bgRefB: this.bgRefB, bgRefC: this.bgRefC,
+      pages,
+      leave: () => this.setState({ hover: null }),
+      isDesktop,
+      isMobile: !isDesktop,
+      menuOpen: this.state.menuOpen,
+      showMobileMenu: !isDesktop && this.state.menuOpen,
+      menuLabel: this.state.menuOpen ? 'Sluit' : 'Menu',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
