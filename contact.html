@@ -92,7 +92,15 @@ input::placeholder,textarea::placeholder{color:#6b6b6b}
       <h2 style="margin:0;max-width:22em;font-size:clamp(24px, 2.6vw, 52px);font-weight:700;line-height:1.05;letter-spacing:-0.01em;text-transform:uppercase;text-wrap:balance">Spring even bij ons binnen of stuur een ouderwetse brief.</h2>
       <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:clamp(24px, 3vw, 56px)">
         <div style="position:relative;flex:2 1 420px;min-width:0;aspect-ratio:16 / 9;border:1px solid #333333;background:#111111;overflow:hidden">
-          <iframe title="Kaart MODULOR, Mutsaardstraat 31 Antwerpen" src="https://www.google.com/maps?q=Mutsaardstraat+31,+2000+Antwerpen&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(0.92) contrast(0.95)"></iframe>
+          <sc-if value="{{ mapOn }}" hint-placeholder-val="{{ false }}">
+            <iframe title="Kaart MODULOR, Mutsaardstraat 31 Antwerpen" src="https://www.google.com/maps?q=Mutsaardstraat+31,+2000+Antwerpen&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(0.92) contrast(0.95)"></iframe>
+          </sc-if>
+          <sc-if value="{{ mapOff }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center">
+              <button type="button" onClick="{{ showMap }}" style="min-height:48px;padding:0 24px;background:#ffffff;border:1px solid #ffffff;border-radius:0;color:#000000;font-family:inherit;font-size:clamp(12px, 0.85vw, 15px);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer" style-hover="background:#000000;color:#ffffff">Kaart tonen</button>
+              <p style="margin:0;max-width:28em;font-size:clamp(13px, 0.9vw, 16px);line-height:1.5;color:#a6a6a6">De kaart komt van Google Maps. Klik je op de knop, dan krijgt Google je IP-adres. Meer in onze <a href="/privacy" style="color:#ffffff">privacyverklaring</a>.</p>
+            </div>
+          </sc-if>
         </div>
         <address style="flex:1 1 220px;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(16px, 1.6vw, 24px);font-style:normal;font-size:clamp(16px, 1.2vw, 22px);line-height:1.5">
           <div style="display:flex;flex-direction:column">
@@ -167,7 +175,7 @@ input::placeholder,textarea::placeholder{color:#6b6b6b}
       </div>
     </div>
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px clamp(24px, 3vw, 56px);padding-top:clamp(16px, 1.6vw, 24px);border-top:1px solid #333333;font-size:clamp(12px, 0.8vw, 14px);color:#a6a6a6">
-      <span>© 2012–2026 MODULOR vzw. Alle rechten voorbehouden.</span>
+      <span>© 2012–2026 MODULOR vzw. Alle rechten voorbehouden. <a href="/privacy" style="color:#a6a6a6;text-underline-offset:3px">Privacyverklaring</a></span>
       <span>Wij verenigen design.</span>
     </div>
   </footer>
@@ -175,7 +183,7 @@ input::placeholder,textarea::placeholder{color:#6b6b6b}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { naam: '', email: '', bericht: '', sent: false };
+  state = { naam: '', email: '', bericht: '', sent: false, mapOn: false };
   partners = [
     { name: 'Design Express', file: 'design-express', size: 0.85 },
     { name: 'Erfgoed & Visie', file: 'erfgoed-en-visie', size: 1 },
@@ -207,6 +215,7 @@ class Component extends DCLogic {
   renderVals() {
     const { naam, email, bericht, sent } = this.state;
     return {
+      mapOn: !!this.state.mapOn, mapOff: !this.state.mapOn, showMap: () => this.setState({ mapOn: true }),
       naam, email, bericht, sent,
       bandRef: this.bandRef,
       bandItems: [0, 1, 2, 3].flatMap(k => this.partners.map(p => ({ name: p.name, src: 'assets/partners/' + p.file + '.png', h: (p.size * 100) + '%', filter: p.filter || 'brightness(0) invert(1)', bg: p.bg || 'transparent', pad: p.pad || '0', href: '#', dup: k ? 'true' : undefined, tab: k ? '-1' : undefined }))),
