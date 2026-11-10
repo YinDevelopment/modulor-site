@@ -131,7 +131,7 @@ input::placeholder,textarea::placeholder{color:#6b6b6b}
       <div ref="{{ bandRef }}" style="display:flex;width:max-content;will-change:transform">
         <sc-for list="{{ bandItems }}" as="p" hint-placeholder-count="24">
           <a href="{{ p.href }}" aria-hidden="{{ p.dup }}" tabindex="{{ p.tab }}" style="display:flex;align-items:center;height:clamp(64px, 6vw, 112px);padding:0 clamp(32px, 4vw, 80px);text-decoration:none;opacity:1;transition:opacity 200ms" style-hover="opacity:0.6">
-            <img decoding="async" src="{{ p.src }}" alt="{{ p.name }}" style="display:block;height:{{ p.h }};width:auto;max-width:none;filter:brightness(0) invert(1)">
+            <img decoding="async" src="{{ p.src }}" alt="{{ p.name }}" style="display:block;height:{{ p.h }};width:auto;max-width:none;filter:{{ p.filter }};background:{{ p.bg }};padding:{{ p.pad }}">
           </a>
         </sc-for>
       </div>
@@ -180,7 +180,10 @@ class Component extends DCLogic {
     { name: 'Design Express', file: 'design-express', size: 0.85 },
     { name: 'Erfgoed & Visie', file: 'erfgoed-en-visie', size: 1 },
     { name: 'Acerta', file: 'acerta', size: 0.6 },
-    { name: 'Orde van Architecten', file: 'orde-van-architecten', size: 0.9 }
+    { name: 'Orde van Architecten', file: 'orde-van-architecten', size: 0.9 },
+    { name: 'NAV', file: 'p-nav', size: 0.6 },
+    { name: 'SBE', file: 'p-sbe', size: 0.85 },
+    { name: 'Protect', file: 'p-protect', size: 0.5, filter: 'grayscale(1)', bg: '#ffffff', pad: '6px 12px' }
   ];
   bandX = 0; bandSpeed = 60; bandTarget = 60; bandLast = 0;
   bandRef = (el) => { this.band = el; };
@@ -206,7 +209,7 @@ class Component extends DCLogic {
     return {
       naam, email, bericht, sent,
       bandRef: this.bandRef,
-      bandItems: [0, 1, 2, 3].flatMap(k => this.partners.map(p => ({ name: p.name, src: 'assets/partners/' + p.file + '.png', h: (p.size * 100) + '%', href: '#', dup: k ? 'true' : undefined, tab: k ? '-1' : undefined }))),
+      bandItems: [0, 1, 2, 3].flatMap(k => this.partners.map(p => ({ name: p.name, src: 'assets/partners/' + p.file + '.png', h: (p.size * 100) + '%', filter: p.filter || 'brightness(0) invert(1)', bg: p.bg || 'transparent', pad: p.pad || '0', href: '#', dup: k ? 'true' : undefined, tab: k ? '-1' : undefined }))),
       pauseBand: () => { this.bandTarget = 0; },
       playBand: () => { this.bandTarget = 60; },
       setNaam: e => this.setState({ naam: e.target.value, sent: false }),
