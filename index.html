@@ -32,8 +32,6 @@ addEventListener('pageshow',function(e){if(e.persisted){clearTimeout(tm);d.class
 <meta property="og:image" content="https://modulorantwerpen.be/assets/hero-poster-v4.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MODULOR vzw","alternateName":"MODULOR","url":"https://modulorantwerpen.be/","logo":"https://modulorantwerpen.be/assets/favicon.svg","email":"info@modulorantwerpen.be","description":"Faculteitsvereniging van Ontwerpwetenschappen aan Universiteit Antwerpen.","foundingDate":"2012","address":{"@type":"PostalAddress","streetAddress":"Mutsaardstraat 31","postalCode":"2000","addressLocality":"Antwerpen","addressCountry":"BE"},"sameAs":["https://www.instagram.com/modulorantwerpen/","https://www.facebook.com/modulorantwerpen","https://www.linkedin.com/company/modulorantwerpen","https://www.tiktok.com/@modulorantwerpen","https://www.youtube.com/@modulorantwerpen"]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="preload" href="assets/vendor/react-18.3.1.min.js" as="script">
 <link rel="preload" href="assets/vendor/react-dom-18.3.1.min.js" as="script">
 <link rel="preload" href="Navbar.dc.html" as="fetch" crossorigin="anonymous">
@@ -47,7 +45,9 @@ addEventListener('pageshow',function(e){if(e.persisted){clearTimeout(tm);d.class
 <body>
 <x-dc>
 <helmet>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/roboto-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link href="/assets/fonts/roboto.css" rel="stylesheet">
 <style>
 html{background:#000000}
 html,body{margin:0;padding:0;min-height:100%;color:#ffffff;font-family:'DINPro','DIN Pro','Roboto',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}

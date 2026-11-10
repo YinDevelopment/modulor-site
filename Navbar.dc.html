@@ -138,19 +138,20 @@ class Component extends DCLogic {
   loadTranslate() {
     const m = document.cookie.match(/googtrans=\/nl\/(\w+)/);
     let saved = null; try { saved = localStorage.getItem('modulor-lang'); } catch (e) {}
-    const lang = saved || (m ? m[1] : 'nl');
+    const pick = saved || (m ? m[1] : 'nl');
+    const lang = pick === 'en' ? 'en' : 'nl';
     this.setState({ lang });
-    if (lang !== 'nl') this.applyLang(lang);
+    /* Privacy: het Google Translate-script laadt alleen als iemand Engels kiest, niet bij elk bezoek. */
+    if (lang !== 'nl') { this.ensureTranslate(); this.applyLang(lang); }
+  }
+  ensureTranslate() {
     if (window.__gtLoaded) return;
     window.__gtLoaded = true;
     window.__gtInit = () => { new window.google.translate.TranslateElement({ pageLanguage: 'nl', includedLanguages: 'nl,en', autoDisplay: false }, 'google_translate_element'); };
     const sc = document.createElement('script');
     sc.src = 'https://translate.google.com/translate_a/element.js?cb=__gtInit';
     sc.async = true;
-    const add = () => document.head.appendChild(sc);
-    if (lang !== 'nl') add();
-    else if (window.requestIdleCallback) requestIdleCallback(add, { timeout: 4000 });
-    else setTimeout(add, 2500);
+    document.head.appendChild(sc);
   }
   applyLang(code, tries = 0) {
     const combo = document.querySelector('.goog-te-combo');
@@ -165,12 +166,14 @@ class Component extends DCLogic {
     }, 6000);
   }
   setLang = (code) => {
+    code = code === 'en' ? 'en' : 'nl';
     try { localStorage.setItem('modulor-lang', code); } catch (e) {}
     const host = location.hostname, exp = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
     ['', host, '.' + host.split('.').slice(-2).join('.')].forEach(d => { document.cookie = 'googtrans=; ' + exp + '; path=/' + (d ? '; domain=' + d : ''); });
     if (code !== 'nl') document.cookie = 'googtrans=/nl/' + code + '; path=/';
     this.setState({ lang: code, langOpen: false, open: false });
-    this.applyLang(code);
+    if (code !== 'nl') this.ensureTranslate();
+    if (code !== 'nl' || window.__gtLoaded) this.applyLang(code);
   };
   initReveal() {
     if (window.__rvInit) return; window.__rvInit = true;
