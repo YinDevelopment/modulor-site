@@ -222,13 +222,26 @@ class Component extends DCLogic {
     this.vEl = el;
     if (!el._ready) { el._ready = true; el.addEventListener('playing', () => { if (!this.state.ready) this.setState({ ready: true }); }); }
     if (!this.io && window.IntersectionObserver) { this.inView = true; this.io = new IntersectionObserver(([e]) => { this.inView = e.isIntersecting; this.syncPlay(); }, { threshold: 0.05 }); this.io.observe(el); } else if (!window.IntersectionObserver) this.inView = true;
-    const p = el.src && el.play && el.play();
-    if (p && p.catch) p.catch(() => {});
+    this.tryPlay(el);
   };
+  // Autoplay kan geblokkeerd zijn (iPhone-energiebesparing, databesparing): dan starten we bij de eerste aanraking of klik.
+  tryPlay(el) {
+    if (!el || !el.src || !el.play) return;
+    const p = el.play();
+    if (!p || !p.catch) return;
+    p.catch(() => {
+      if (this._kickArmed) return; this._kickArmed = true;
+      const evs = ['touchend', 'pointerup', 'click', 'keydown'];
+      const kick = () => { evs.forEach(ev => window.removeEventListener(ev, kick, true)); this._kickArmed = false; if (!document.hidden && this.inView !== false) this.tryPlay(el); };
+      evs.forEach(ev => window.addEventListener(ev, kick, { capture: true, passive: true }));
+    });
+  }
   state = { videoSrc: null, vw: typeof window !== 'undefined' ? window.innerWidth : 1920, vh: typeof window !== 'undefined' ? window.innerHeight : 1080 };
   onResize = () => this.setState({ vw: window.innerWidth, vh: window.innerHeight });
   componentDidMount() {
-    const SRC = window.innerWidth < 760 ? 'assets/hero-480.mp4' : 'assets/hero-720.mp4';
+    // Originele 4K-video (HEVC) waar de browser dat kan afspelen; anders dezelfde video in 1080p (H.264).
+    const hevc = (document.createElement('video').canPlayType('video/mp4; codecs="hvc1.1.6.L153.B0"') || '') !== '';
+    const SRC = hevc ? 'assets/hero-4k.mp4' : 'assets/hero-1080.mp4';
     const c = navigator.connection || {};
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const slow = c.saveData || /(^|-)2g$/.test(c.effectiveType || '');
@@ -241,7 +254,7 @@ class Component extends DCLogic {
   syncPlay() {
     const el = this.vEl; if (!el || !el.src) return;
     if (document.hidden || !this.inView) el.pause();
-    else { const p = el.play(); if (p && p.catch) p.catch(() => {}); }
+    else this.tryPlay(el);
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.onResize);
