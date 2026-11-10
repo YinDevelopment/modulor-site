@@ -16,7 +16,12 @@ addEventListener('pageshow',function(e){if(e.persisted){clearTimeout(tm);d.class
 <link rel="canonical" href="https://modulorantwerpen.be/merch">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/favicon-96.png" sizes="96x96" type="image/png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="MODULOR">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MODULOR">
 <meta property="og:locale" content="nl_BE">
@@ -132,13 +137,13 @@ a:hover{color:#a6a6a6}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  // Vul per item de link naar de betaalpagina in bij href.
+  // Link per item naar de betaalpagina in de SumUp-shop (modulorshop.sumupstore.com).
   items = [
-    { name: 'MODULOR Pin', price: '€\u00a02,99', img: 'assets/merch/pin-hq.webp', href: '' },
-    { name: 'MODULOR Stickers (10 stuks)', price: '€\u00a02,99', img: 'assets/merch/stickers-hq.webp', href: '' },
-    { name: 'MODULOR Sweater: Creative Edition', price: '€\u00a024,99', img: 'assets/merch/sweater-achter-hq.webp', href: '' },
-    { name: 'MODULOR Totebag', price: '€\u00a04,99', img: 'assets/merch/totebag-hq.webp', href: '' },
-    { name: 'MODULOR Sjaal', price: '€\u00a012,99', img: 'assets/merch/sjaal-4.webp', fit: 'cover', href: '' }
+    { name: 'MODULOR Pin', price: '€\u00a02,99', img: 'assets/merch/pin-hq.webp', href: 'https://modulorshop.sumupstore.com/product/modulor-pin' },
+    { name: 'MODULOR Stickers (10 stuks)', price: '€\u00a02,99', img: 'assets/merch/stickers-hq.webp', href: 'https://modulorshop.sumupstore.com/product/modulor-sticker-10-stuks' },
+    { name: 'MODULOR Sweater: Creative Edition', price: '€\u00a024,99', img: 'assets/merch/sweater-achter-hq.webp', href: 'https://modulorshop.sumupstore.com/product/modulor-sweater-creative-edition' },
+    { name: 'MODULOR Totebag', price: '€\u00a04,99', img: 'assets/merch/totebag-hq.webp', href: 'https://modulorshop.sumupstore.com/product/modulor-tote-bag' },
+    { name: 'MODULOR Sjaal', price: '€\u00a012,99', img: 'assets/merch/sjaal-4.webp', fit: 'cover', href: 'https://modulorshop.sumupstore.com/product/modulor-sjaal' }
   ];
   renderVals() {
     return { items: this.items.map(it => ({ ...it, hasImg: !!it.img, fit: it.fit || 'contain', noImg: !it.img, href: it.href || '#', target: it.href ? '_blank' : '_self', cta: it.href ? 'Bestellen' : 'Binnenkort te koop' })) };
