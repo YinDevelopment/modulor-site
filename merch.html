@@ -76,7 +76,7 @@ a:hover{color:#a6a6a6}
           <div style="display:flex;flex-direction:column;gap:8px;flex:1;padding:clamp(16px, 1.4vw, 24px)">
             <h2 style="margin:0;font-size:clamp(18px, 1.4vw, 26px);font-weight:900;line-height:1.1;text-transform:uppercase;letter-spacing:-0.01em;text-wrap:balance">{{ it.name }}</h2>
             <span style="font-size:clamp(15px, 1.1vw, 20px);font-weight:500">{{ it.price }}</span>
-            <a href="{{ it.href }}" target="{{ it.target }}" rel="noopener" style="display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;min-height:48px;min-width:min(100%, 220px);padding:0 clamp(18px, 1.6vw, 28px);margin-top:auto;align-self:flex-start;background:#ffffff;border:1px solid #ffffff;border-radius:0;color:#000000;text-decoration:none;font-size:clamp(12px, 0.85vw, 15px);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 200ms ease, color 200ms ease" style-hover="background:#000000;color:#ffffff">{{ it.cta }}</a>
+            <a href="{{ it.href }}" target="{{ it.target }}" rel="noopener" style="display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;min-height:48px;width:100%;min-width:0;padding:0 12px;margin-top:auto;align-self:stretch;background:#ffffff;border:1px solid #ffffff;border-radius:0;color:#000000;text-decoration:none;font-size:clamp(12px, 0.85vw, 15px);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 200ms ease, color 200ms ease" style-hover="background:#000000;color:#ffffff">{{ it.cta }}</a>
           </div>
         </article>
       </sc-for>
