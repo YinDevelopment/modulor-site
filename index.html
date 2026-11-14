@@ -205,6 +205,10 @@ class Component extends DCLogic {
     if (!el) return;
     el.muted = true; el.defaultMuted = true; el.volume = 0;
     el.setAttribute('muted', '');
+    // iPhone: zonder 'playsinline' speelt de video niet automatisch af en opent hij bij aanraken in de volledige-schermspeler.
+    el.playsInline = true; el.setAttribute('playsinline', ''); el.setAttribute('webkit-playsinline', '');
+    el.autoplay = true; el.setAttribute('autoplay', '');
+    el.setAttribute('disablepictureinpicture', ''); el.setAttribute('disableremoteplayback', ''); el.controls = false;
     if (!el._silenced) {
       el._silenced = true;
       el.addEventListener('volumechange', () => { if (!el.muted || el.volume > 0) { el.muted = true; el.volume = 0; } });
@@ -227,6 +231,7 @@ class Component extends DCLogic {
   // Autoplay kan geblokkeerd zijn (iPhone-energiebesparing, databesparing): dan starten we bij de eerste aanraking of klik.
   tryPlay(el) {
     if (!el || !el.src || !el.play) return;
+    if (!el.hasAttribute('playsinline')) return; // nooit afspelen zonder inline-modus (anders volledig scherm op iPhone)
     const p = el.play();
     if (!p || !p.catch) return;
     p.catch(() => {
